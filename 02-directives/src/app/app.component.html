@@ -1,0 +1,56 @@
+<h1>
+<h2>ngClass / ngStyle </h2>
+<div [ngClass]="{border: true,
+background: true}"></div>
+<div [class.border]="true"></div>
+<div [ngStyle]="{'background-color': 'red'}"></div>
+<hr>
+<h1>My First Attribute Directive</h1>
+<p appHighlight>Highlight me!</p>
+<p appHighlight [highlightColor]="'blue'" [defaultColor]="'red'">Highlight me!</p>
+<hr>
+<h1> Structural Directives </h1>
+<h2>*ngIf</h2>
+<div *ngIf="switch">Conditional Text</div>
+<button (click)="onSwitch()">Switch</button>
+
+<template [ngIf]="switch">
+  <div> Conditional text </div>
+</template>
+
+<h2>*ngFor</h2>
+<ul>
+  <li *ngFor="let item of items; let i = index">{{item}} - (Index: {{i}})</li>
+</ul>
+
+<h2>ngSwitch</h2>
+<div [ngSwitch]="value">
+<p *ngSwitchCase="10">10</p>
+<p *ngSwitchCase="100">100</p>
+<p *ngSwitchDefault>Default</p>
+</div>
+
+<h2>ngSwitch</h2>
+<p [ngSwitch]="value">
+<template [ngSwitchCase]="10">10</template>
+<template [ngSwitchCase]="100">100</template>
+<template ngSwitchDefault>Default</template>
+</p>
+<h2> Unless custom directive </h2>
+<div *dirUnless="switch">Conditional text</div>
+
+<h2> Services </h2>
+<div>
+  <input type="text" #input>
+  <button (click)="onLog(input.value)">Log</button>
+  <button (click)="onStore(input.value)">Store</button>
+  <button (click)="onGet()">Get</button>
+  <button (click)="onSend(input.value)">Send</button>
+<h3>Storage</h3>
+<ul>
+  <li *ngFor="let dataItem of dataItems">{{dataItem}}</li>
+</ul>
+</div>
+
+<br><br><br><br><br><br><br><br>
+<dir-receivedvalue></dir-receivedvalue>

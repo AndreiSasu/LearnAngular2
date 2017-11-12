@@ -1,0 +1,29 @@
+<h1>
+  {{title}}
+</h1>
+<app-other></app-other>
+<app-another>
+  <div>
+    <!-- enable ngContent -->
+    <h2> Hello </h2>
+    <p>World!</p>
+  </div>
+</app-another>
+<app-another>
+  <div>
+    <h1> Something </h1>
+    <p> Else!</p>
+  </div>
+</app-another>
+
+<app-databinding></app-databinding>
+<app-lifecyle *ngIf="!delete"
+  [bindable]="boundValue">
+
+<!-- can be accessed from within lifecyle.component using ContentChild -->
+<p #boundContent>{{test}}</p>
+
+</app-lifecyle>
+<button (click)="delete = true">Click to Delete</button>
+<button (click)="test = 'changed value'">Click to Change Content</button>
+<button (click)="boundValue=2000">Click to Change Binding</button>
